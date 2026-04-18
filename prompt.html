@@ -43,7 +43,8 @@ const id = new URLSearchParams(location.search).get("id");
   if (relGrid) {
     if (related.length) {
       relGrid.innerHTML = related.map(p => renderPromptCard(p)).join("");
-      document.getElementById("related-section")?.classList.remove("hidden");
+      const relSection = document.getElementById("related-section");
+    if (relSection) relSection.style.display = "";
     }
   }
 
@@ -142,7 +143,7 @@ function renderDetail(p, cfg) {
           : `<div class="locked-box">
               <div class="locked-icon">🔒</div>
               <p class="locked-msg">This is a <strong>Premium</strong> prompt. Download the PromptVault app to unlock it by watching a short ad.</p>
-              <a href="${storeUrl}" target="_blank" rel="noopener" class="btn-unlock" aria-label="Download app to unlock">
+              <a href="${storeUrl}"  class="btn-unlock" aria-label="Download app to unlock">
                 <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M3.18 23.76c.37.21.8.22 1.18.04l12.18-6.83-2.61-2.62-10.75 9.41zM.32 1.36C.12 1.7 0 2.12 0 2.62v18.76c0 .5.12.92.32 1.26l.07.06 10.51-10.51v-.25L.39 1.3l-.07.06zM20.46 9.7l-2.93-1.65-2.93 2.93 2.93 2.93 2.94-1.65c.84-.47.84-1.09 0-1.56zM4.36.24L16.54 7.07l-2.61 2.62L3.18.28C3.56.1 3.99.1 4.36.28z"/>
                 </svg>
@@ -160,7 +161,7 @@ function renderDetail(p, cfg) {
                   d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
               </svg>Copy Prompt
              </button>`
-          : `<a href="${storeUrl}" target="_blank" rel="noopener" class="btn-action btn-action-primary" aria-label="Download app">
+          : `<a href="${storeUrl}"  class="btn-action btn-action-primary" aria-label="Download app">
               📱 Unlock in App
              </a>`}
         <button class="btn-action" onclick="doShare()" aria-label="Share this prompt">
@@ -199,7 +200,7 @@ function renderDetail(p, cfg) {
           <p style="font-size:12.5px;color:rgba(255,255,255,.65);margin-bottom:16px;line-height:1.5;">
             Browse 1000+ prompts, save favourites, unlock premium — all from your phone.
           </p>
-          <a href="${storeUrl}" target="_blank" rel="noopener"
+          <a href="${storeUrl}" 
             style="display:flex;align-items:center;justify-content:center;gap:8px;
                    padding:11px 16px;background:#fff;color:#1e1b4b;border-radius:10px;
                    font-size:13px;font-weight:800;" aria-label="Download PromptVault on Google Play">
@@ -289,7 +290,7 @@ function show404() {
   </div>
 
   <!-- Related Prompts -->
-  <section id="related-section" class="section hidden" aria-labelledby="related-title">
+  <section id="related-section" class="section" style="display:none" aria-labelledby="related-title">
     <div class="section-header">
       <h2 class="section-title" id="related-title">Related <span>Prompts</span></h2>
     </div>

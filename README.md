@@ -13,6 +13,7 @@ pv-website/
 ├── prompts.html        ← Browse + filter (category, subcategory, type, tool)
 ├── categories.html     ← All categories with subcategory chips
 ├── prompt.html         ← Single prompt detail (copy, share, related)
+├── about.html          ← About Us page
 ├── 404.html            ← Custom GitHub Pages error page
 ├── sitemap.xml         ← SEO sitemap (update YOUR_USERNAME)
 ├── robots.txt          ← SEO robots file (update YOUR_USERNAME)
